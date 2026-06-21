@@ -1,0 +1,15 @@
+<script setup>
+    import { ref } from "vue";
+
+    let isVisible = ref(false);
+    function myFunction() {
+        isVisible.value = !isVisible.value;
+    }
+</script>
+
+<template>
+    <button @click="myFunction()">Mostrar</button>
+    <p v-if="isVisible">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem alias voluptas consectetur dolorum quis et amet excepturi veritatis esse! Voluptatibus placeat magnam dolores eaque cum dolorum pariatur sunt aliquam nam!</p>
+</template>
+
+<style scoped></style>

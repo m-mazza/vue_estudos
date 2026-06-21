@@ -1,0 +1,40 @@
+<script setup>
+    import Carro from "./components/Carro.vue";
+</script>
+
+<template>
+    <section class="carros">
+        
+        <Carro 
+            imagem="https://image1.mobiauto.com.br/images/api/images/v1.0/189168753/transform/fl_progressive,f_webp,q_auto"
+            nome="Gol"
+            :ano=2017
+            descricao="Este Carro é um Gol."
+        >
+       <template #estado>Usado</template>
+       <template v-slot:cambio>Manual</template>
+        </Carro>
+        <Carro
+            imagem="https://www.motoragora.com.br/wp-content/uploads/2022/07/fiat-palio-2023-vermelho-1024x576.jpg"
+            nome="Pálio"
+            :ano=2024
+            descricao="Este Carro é um Pálio."
+        >
+        </Carro>
+        <Carro
+            imagem="https://www.webmotors.com.br/tabela-fipe/_next/image?url=https%3A%2F%2Fwww.webmotors.com.br%2Fimagens%2Fprod%2F345399%2FFIAT_PUNTO_1.8_BLACKMOTION_16V_FLEX_4P_AUTOMATIZADO_3453991426088947.png&w=1265&q=75    "
+            nome="Punto"
+            :ano=2024
+            descricao="Este Carro é um Puto."
+        >
+        </Carro>
+    </section>
+</template>
+
+<style scoped>
+    .carros {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+</style>

@@ -1,0 +1,10 @@
+<script setup>
+    import { ref } from "vue";
+    const name = ref('');
+</script>
+<template>
+    <input v-model="name" type="text" placeholder="Digite seu nome">
+    <p >Olá {{ name }}</p>
+</template>
+
+<style scoped></style>

@@ -1,0 +1,23 @@
+<script setup>
+    import { ref } from "vue";
+    
+    const fruits = ref(['Banana', 'Maçã', 'Uva']);
+    const newFruit = ref('');
+
+    function addFruit() {
+        fruits.value.push(newFruit.value);
+        newFruit.value = '';
+    }
+</script>
+<template>
+
+    <input @keyup.enter="addFruit" v-model='newFruit' type="text" placeholder="Digite uma fruta">
+    <ul>
+        <li v-for="fruit in fruits" :key="fruit">
+            {{ fruit}}
+        </li>
+    </ul>
+
+</template>
+
+<style scoped></style>
