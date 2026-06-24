@@ -1,0 +1,25 @@
+<script setup>
+  import { ref } from 'vue';
+  const number = ref(0);
+
+  function operacao(tipo) {
+    if(tipo === 'adicao') 
+      number.value++;
+    else if(tipo === 'subtracao')
+    {
+      number.value--;
+      if(number.value < 0) {
+        number.value = 0;
+      }
+    }
+
+  }
+</script>
+
+<template>
+  <p>{{ number }}</p>
+  <button @click="operacao('adicao')">+</button>
+  <button @click="operacao('subtracao')">-</button>
+</template>
+
+<style scoped></style>
