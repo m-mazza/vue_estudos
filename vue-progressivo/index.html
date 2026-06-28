@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+    <title>Vue Progressivo</title>
+</head>
+<body>
+    <main id="app">
+        <h1>Lista de Itens</h1>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li v-for="item in itens">{{ item }}</li>
+        </ul>
+
+        <input type="text" v-model="novoItem" id="new-item" placeholder="adicionar novo item">
+        <br>
+        <button id="btn-jq">Adicionar jQuery</button>
+        <br>
+        <button @click="adicionarNovoItem">Adicionar Vue.js</button>
+    </main>
+    <script>
+        $(document).ready(function(){
+            $('#btn-jq').on('click', function() {
+                let newItem = $('#new-item').val(); 
+
+                if(newItem){
+                    $('ul').append(`<li>${newItem}</li>`);
+                    $("#new-item").val('');
+                }
+            })  
+        })
+
+        const App = {
+
+            data() {
+                return {
+                    novoItem: '',
+                    itens: [],
+                }
+            },
+            methods: {
+                adicionarNovoItem() {
+                    if(this.novoItem){
+                        this.itens.push(this.novoItem);
+                        this.novoItem = '';
+                    }
+                }
+            },  
+        };
+
+        Vue.createApp(App).mount('#app');
+    </script>
+</body>
+</html>

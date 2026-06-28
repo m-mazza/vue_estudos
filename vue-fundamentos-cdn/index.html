@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- vue CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Vue CDN</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{nome}}</h1>
+        <hr>
+        <h5>{{numero}}</h5>
+        <button @click="operacao('adicao')">+</button>
+        <button @click="operacao('subtracao')">-</button>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    nome: "Mazza",
+                    numero: 0,   
+                }    
+            },
+            methods: {
+                operacao(op) {
+
+                    if(op == 'adicao')
+                        this.numero++;
+                    else 
+                    {
+                        this.numero --;
+
+                        if(this.numero < 0)
+                            this.numero = 0;
+                    }
+                }
+            },
+        }
+
+        Vue.createApp(App).mount("#app")
+    </script>
+</body>
+</html>
